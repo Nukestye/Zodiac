@@ -6,7 +6,7 @@
   "colour": "0x4B0082",
   "log_channels": {
     "moderation": "Moderation channel name goes here",
-    "events": "Events channel name goes here"
+    "events": "Events channel name goes here",
     "welcome_channel": "Events channel name goes here"
   },
   "info_channels": {
