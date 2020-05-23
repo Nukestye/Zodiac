@@ -1,4 +1,6 @@
 ### Zodiac bot
+![Issues](https://img.shields.io/github/issues/Nukestye/Zodiac?style=for-the-badge&logo=appveyor)
+![License](https://img.shields.io/github/license/Nukestye/Zodiac?style=for-the-badge&logo=appveyor)
 ## Information
 *Note: This is my first discord bot, so be wary of any issues that may arise from my code. Also, be sure to let me know about those issues.*
 
