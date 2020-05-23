@@ -1,7 +1,7 @@
 ### Zodiac bot
 ![Issues](https://img.shields.io/github/issues/Nukestye/Zodiac?style=for-the-badge&logo=appveyor)
 ![License](https://img.shields.io/github/license/Nukestye/Zodiac?style=for-the-badge&logo=appveyor)
-![Version](https://img.shields.io/github/package-json/v/Nukestye/Zodiac?style=for-the-badge)
+![Version](https://img.shields.io/github/v/release/Nukestye/Zodiac?style=for-the-badge)
 ## Information
 *Note: This is my first discord bot, so be wary of any issues that may arise from my code. Also, be sure to let me know about those issues.*
 
