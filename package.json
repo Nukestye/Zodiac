@@ -1,6 +1,6 @@
 {
   "name": "zodiac-bot",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "description": "Moderation discord bot.",
   "main": "main.js",
   "dependencies": {
