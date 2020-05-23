@@ -1,23 +1,47 @@
 # Changelog
+All notable changes to this project will be documented in this file.
 
-## 0.2.0 - 19/04/2020
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+
+## 0.3.1 - 23/05/2020
+---
 ### Added
-  > Project Public!
+  - Detailed explaintion in readme.md
+
+
+## 0.3.0 - 05/05/2020
+---
+### Added
+ - `youtube.js`, search Youtube.
+ - TODO list is updated.
 
 ### Removed
-  > Bot Information!
+ - *Changed quote format.*
+
+
+## 0.2.0 - 19/04/2020
+---
+### Added
+> Project Public!
+
+### Removed
+> Bot Information!
 
 ## 0.1.0 - 15/04/2020
-
+---
 ### Added
- > Main files
+> Main files
+
   - `config.json`
   - `main.js`
   - `changelog.md`
   - `Procfile`
 
 
- > Moderation Commands
+> Moderation Commands
+
   - `announce`
   - `ban`
   - `clear`
@@ -29,15 +53,15 @@
   - `addrole`
   - `removerole`
   - `lock`
-  
-  
+
 > Public Commands
+
   - `avatar`
   - `info`
   - `meme`
-  
-  
+
 > Events
+
   - `GuildMemberAdd`
   - `GuildMemberRemove`
   - `Message`
@@ -46,24 +70,19 @@
   - `Role`
   - `RoleRemove`
   - `RoleUpdate`
-  
-  
+
 > Other Files
+
   - `Command Template file`
   - `Images`
     - `Welcome Gifs(2)`
     - `Member Join emoji`
     - `Member Leave emoji`
-    
-    
+
+
 ### Removed
  - `start.bat`
 
 
 [//]: # 'Author: nukestye'
 [//]: # 'Contributors: nukestye'
-[//]: # 'Enter your name if you have changed any part here, at [Contributors]'
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
