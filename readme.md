@@ -1,10 +1,9 @@
 ### Zodiac bot
-<<<<<<< HEAD
-=======
+
 ![Issues](https://img.shields.io/github/issues/Nukestye/Zodiac?style=for-the-badge&logo=appveyor)
 ![License](https://img.shields.io/github/license/Nukestye/Zodiac?style=for-the-badge&logo=appveyor)
 ![Version](https://img.shields.io/github/v/release/Nukestye/Zodiac?style=for-the-badge)
->>>>>>> d0f9c83a4c0a0a6f063e2097a714b6948570e884
+
 ## Information
 *Note: This is my first discord bot, so be wary of any issues that may arise from my code. Also, be sure to let me know about those issues.*
 
@@ -48,26 +47,7 @@ Zodiac Discord Bot is used for mainly moderation. Its current features are as fo
 
 ## Installation
    The process of installing and hosting the bot is simple.
-<<<<<<< HEAD
-   
-- Step 1:
-         Clone the repo into a new folder.
 
-> Please make sure that you have the required Dependencies installed, to make sure you can do `npm install` to check.
-
-   
-- Step 2: 
-         Fill out the credentials in config.json.
-
-   
-- Step 3:
-         Run the command line inside the folder and type the following command:
-
-         `node main.js`
-
-         *If everything is done correctly then the bot should launch, if not please check to see if you have missed any steps. If not then please report it as an issue and I'll work on it straight away.*
-=======
-   
 - Step 1:
          Clone the repo into a new folder.
 
@@ -83,4 +63,4 @@ Zodiac Discord Bot is used for mainly moderation. Its current features are as fo
 `node main.js`
 
 *If everything is done correctly then the bot should launch, if not please check to see if you have missed any steps. If not then please report it as an issue and I'll work on it straight away.*
->>>>>>> d0f9c83a4c0a0a6f063e2097a714b6948570e884
+
