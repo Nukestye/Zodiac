@@ -19,12 +19,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nukestye/Nukinator-Bot.git"
+    "url": "git+https://github.com/Nukestye/Zodiac.git"
   },
   "author": "nukestye™",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Nukestye/Nukinator-Bot/issues"
+    "url": "https://github.com/Nukestye/Zodiac/issues"
   },
-  "homepage": "https://github.com/Nukestye/Nukinator-Bot#readme"
+  "homepage": "https://github.com/Nukestye/Zodiac#readme"
 }
