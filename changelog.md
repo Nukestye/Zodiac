@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 ## 0.2.0 - 19/04/2020
+---
 ### Added
 > Project Public!
 
