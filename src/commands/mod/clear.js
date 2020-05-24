@@ -1,9 +1,9 @@
 // Getting the 'Command' features from Commando
-const { Command } = require('discord.js-commando');
+const { Command } = require('discord.js-commando')
 
 // Code for the command
 module.exports = class clearCommand extends Command {
-  constructor(client) {
+  constructor (client) {
     super(client, {
       // name of the command, must be in lowercase
       name: 'clear',
@@ -17,10 +17,10 @@ module.exports = class clearCommand extends Command {
       description: 'Clears x number of messages in mentioned channel',
       // adds cooldowns to the command
       throttling: {
-          // usages in certain time x
-          usages: 1,
-          // the cooldown
-          duration: 10,
+        // usages in certain time x
+        usages: 1,
+        // the cooldown
+        duration: 10
       },
       // Prevents it from being used in dms
       guildOnly: true,
@@ -40,22 +40,23 @@ module.exports = class clearCommand extends Command {
           // the data type of the argument/variable
           type: 'integer',
           // default value if nothing is entered
-          //default: 'hello',
+          // default: 'hello',
           // check if the argument/variable matchs or not
-          validate: x => 2 <= x <= 100,
+          validate: x => x >= 2 <= 100
           // Forces to be one of the options
-          //oneOf:['nothing','nothing2', 'hello'],
-        },
+          // oneOf:['nothing','nothing2', 'hello'],
+        }
         // > Part of one argument/variable
-      ],
-    });
+      ]
+    })
   }
+
   // Run code goes here
-  run(message, { x }) {
+  run (message, { x }) {
     message.channel.bulkDelete(x)
       .catch(err => {
-        console.error(err);
-        message.channel.send('There was an error trying to prune messages in this channel!');
-      });
+        console.error(err)
+        message.channel.send('There was an error trying to prune messages in this channel!')
+      })
   };
-};
+}

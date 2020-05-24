@@ -1,11 +1,11 @@
+/* eslint-disable no-template-curly-in-string */
 // Getting the 'Command' features from Commando
-const { Command } = require('discord.js-commando');
-const Discord = require('discord.js');
-const log = console.log;
-const chalk = require('chalk');
+const { Command } = require('discord.js-commando')
+const Discord = require('discord.js')
+
 // Code for the command
 module.exports = class pollCommand extends Command {
-  constructor(client) {
+  constructor (client) {
     super(client, {
       // name of the command, must be in lowercase
       name: 'poll',
@@ -19,10 +19,10 @@ module.exports = class pollCommand extends Command {
       description: 'Poll command to get options',
       // adds cooldowns to the command
       throttling: {
-          // usages in certain time x
-          usages: 1,
-          // the cooldown
-          duration: 10,
+        // usages in certain time x
+        usages: 1,
+        // the cooldown
+        duration: 10
       },
       // Prevents it from being used in dms
       guildOnly: true,
@@ -30,43 +30,42 @@ module.exports = class pollCommand extends Command {
       clientPermissions: ['ADMINISTRATOR'],
       userPermissions: ['MANAGE_MESSAGES'],
       // Prevents anyone other than owner to use the command
-      ownerOnly: false,
-    });
+      ownerOnly: false
+    })
   }
+
   // Run code goes here
-  async run(message) {
+  async run (message) {
     // using client commands there needs to be 'this.'
     // Seprating the message into 'cmd' and 'args'
-    let messageArry = message.content.split(" ");
-    let args = messageArry.slice(1);
+    const messageArry = message.content.split(' ')
+    const args = messageArry.slice(1)
     // Getting the title, text and channel
-    var length = args.length;
-  	var pos = args.indexOf("|");
-  	var title = args.slice(1,pos);
-  	var text = args.slice(pos+1,length);
-  	if (text.length < 1 && title.length < 1) return message.channel.send("Incorrect Usage!\n`${this.client.commandPrefix}poll [#Channel] [Title] | [Description]`");
-    let channelq = message.mentions.channels.first();
-  	if(!channelq) return message.channel.send("Incorrect Usage!\n`${this.client.commandPrefix}poll [#Channel] [Title] | [Description]`");
+    var length = args.length
+    var pos = args.indexOf('|')
+    var title = args.slice(1, pos)
+    var text = args.slice(pos + 1, length)
+    if (text.length < 1 && title.length < 1) return message.channel.send('Incorrect Usage!\n`${this.client.commandPrefix}poll [#Channel] [Title] | [Description]`')
+    const channelq = message.mentions.channels.first()
+    if (!channelq) return message.channel.send('Incorrect Usage!\n`${this.client.commandPrefix}poll [#Channel] [Title] | [Description]`')
 
     // setting up the poll emebed
-    let pollEmebed = new Discord.RichEmbed()
-          .setTitle(title.join(" "))
-          .setColor("#4B0082")
-          .setDescription("*`"+text.join(" ")+"`*");
+    const pollEmebed = new Discord.RichEmbed()
+      .setTitle(title.join(' '))
+      .setColor('#4B0082')
+      .setDescription('*`' + text.join(' ') + '`*')
 
-
-
-    channelq.send("@everyone")
+    channelq.send('@everyone')
       .then(msg => {
         msg.delete({ timeout: 100000 })
       })
     channelq.send(pollEmebed)
       .then(function (message) {
-            message.react("👎")
-            message.react("👍")
-         })
-      message.delete().catch(O_o=>{})
-        .then(message.channel.send(`Poll has been posted in ${channelq}!`))
+        message.react('👎')
+        message.react('👍')
+      })
+    // eslint-disable-next-line camelcase
+    message.delete().catch(O_o => {})
+      .then(message.channel.send(`Poll has been posted in ${channelq}!`))
   }
-
-};
+}

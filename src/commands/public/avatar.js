@@ -1,12 +1,11 @@
 // Getting the 'Command' features from Commando
-const { Command } = require('discord.js-commando');
-const config = require('../../../config.json');
-const Discord = require('discord.js');
-const chalk = require('chalk');
+const { Command } = require('discord.js-commando')
+const config = require('../../../config.json')
+const Discord = require('discord.js')
 
 // Code for the command
 module.exports = class avatarCommand extends Command {
-  constructor(client) {
+  constructor (client) {
     super(client, {
       // name of the command, must be in lowercase
       name: 'avatar',
@@ -20,10 +19,10 @@ module.exports = class avatarCommand extends Command {
       description: 'Shows Profile Picture of mentioned user or themselves.',
       // adds cooldowns to the command
       throttling: {
-          // usages in certain time x
-          usages: 1,
-          // the cooldown
-          duration: 10,
+        // usages in certain time x
+        usages: 1,
+        // the cooldown
+        duration: 10
       },
       // Prevents it from being used in dms
       guildOnly: true,
@@ -31,31 +30,30 @@ module.exports = class avatarCommand extends Command {
       clientPermissions: ['ADMINISTRATOR'],
       userPermissions: ['SEND_MESSAGES'],
       // Prevents anyone other than owner to use the command
-      ownerOnly: false,
-    });
+      ownerOnly: false
+    })
   }
+
   // Run code goes here
-  run(message) {
-    let messageArry = message.content.split(" ");
-    let args = messageArry.slice(1);
-    let user = [];
-    if(args == "") {
-      user = message.author;
-      console.log("No args in message")
+  run (message) {
+    const messageArry = message.content.split(' ')
+    const args = messageArry.slice(1)
+    let user = []
+    if (args === '') {
+      user = message.author
+      console.log('No args in message')
     } else {
-      user = message.mentions.users.first();
-      console.log("args in message")
+      user = message.mentions.users.first()
+      console.log('args in message')
     };
 
-    let avatarEmebd = new Discord.RichEmbed()
+    const avatarEmebd = new Discord.RichEmbed()
       .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL}`)
       .setColor(config.colour)
-      .setDescription(`[${user}\'s Avatar](${user.displayAvatarURL})`)
-      .setImage(user.displayAvatarURL);
+      .setDescription(`[${user}'s Avatar](${user.displayAvatarURL})`)
+      .setImage(user.displayAvatarURL)
 
-
-    message.channel.send(avatarEmebd);
+    message.channel.send(avatarEmebd)
     // console.log(message.author);
   }
-
-};
+}

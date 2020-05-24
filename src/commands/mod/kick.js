@@ -1,12 +1,12 @@
 // Getting the 'Command' features from Commando
-const { Command } = require('discord.js-commando');
-const { RichEmbed } = require("discord.js");
-const chalk = require("chalk");
-const log = console.log;
+const { Command } = require('discord.js-commando')
+const { RichEmbed } = require('discord.js')
+const chalk = require('chalk')
+const log = console.log
 
 // Code for the command
 module.exports = class kickCommand extends Command {
-  constructor(client) {
+  constructor (client) {
     super(client, {
       // name of the command, must be in lowercase
       name: 'kick',
@@ -20,10 +20,10 @@ module.exports = class kickCommand extends Command {
       description: 'Kick command.',
       // adds cooldowns to the command
       throttling: {
-          // usages in certain time x
-          usages: 1,
-          // the cooldown
-          duration: 10,
+        // usages in certain time x
+        usages: 1,
+        // the cooldown
+        duration: 10
       },
       // Prevents it from being used in dms
       guildOnly: true,
@@ -31,41 +31,37 @@ module.exports = class kickCommand extends Command {
       clientPermissions: ['ADMINISTRATOR'],
       userPermissions: ['KICK_MEMBERS'],
       // Prevents anyone other than owner to use the command
-      ownerOnly: false,
+      ownerOnly: false
 
-    });
+    })
   }
+
   // Run code goes here
-  run(message) {
-    let messageArry = message.content.split(" ");
-    let args = messageArry.slice(1);
+  run (message) {
+    const messageArry = message.content.split(' ')
+    const args = messageArry.slice(1)
 
-
-    let kUser = message.guild.member(message.mentions.users.first() || message.guild.get(args[0]));
-    if(!kUser) return message.channel.send("User cannot be found!");
-    let kreason = args.join(" ").slice(22);
+    const kUser = message.guild.member(message.mentions.users.first() || message.guild.get(args[0]))
+    if (!kUser) return message.channel.send('User cannot be found!')
+    const kreason = args.join(' ').slice(22)
 
     // setting up the embed for report/log
-    let kickEmbed = new RichEmbed()
+    const kickEmbed = new RichEmbed()
       .setDescription(`Report: ${kUser} Kick`)
-      .addField("Reason >", `${kreason}`)
-      .addField("Time", message.createdAt)
-      
+      .addField('Reason >', `${kreason}`)
+      .addField('Time', message.createdAt)
 
-
-    let reportchannel = message.guild.channels.find(`name`, "report");
-    if(!reportchannel) return message.channel.send("*`Report channel cannot be found!`*");
-
+    const reportchannel = message.guild.channels.find('name', 'report')
+    if (!reportchannel) return message.channel.send('*`Report channel cannot be found!`*')
 
     // Delete the message command
-    message.delete().catch(O_o=>{});
+    // eslint-disable-next-line camelcase
+    message.delete().catch(O_o => {})
     // Kick the user with reason
-    message.guild.member(kUser).kick(kreason);
+    message.guild.member(kUser).kick(kreason)
     // sends the kick report into log/report
-    reportchannel.send(kickEmbed);
+    reportchannel.send(kickEmbed)
     // Logs the kick into the terminal
-    log(chalk.red('KICK', chalk.underline.bgBlue(kUser) + '!'));
-
+    log(chalk.red('KICK', chalk.underline.bgBlue(kUser) + '!'))
   }
-
-};
+}

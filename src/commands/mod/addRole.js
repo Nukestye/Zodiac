@@ -1,9 +1,9 @@
 // Getting the 'Command' features from Commando
-const { Command } = require('discord.js-commando');
+const { Command } = require('discord.js-commando')
 
 // Code for the command
 module.exports = class addRoleCommand extends Command {
-  constructor(client) {
+  constructor (client) {
     super(client, {
       // name of the command, must be in lowercase
       name: 'addrole',
@@ -21,27 +21,26 @@ module.exports = class addRoleCommand extends Command {
       clientPermissions: ['ADMINISTRATOR', 'MANAGE_ROLES'],
       userPermissions: ['MANAGE_ROLES'],
       // Prevents anyone other than owner to use the command
-      ownerOnly: false,
-    });
+      ownerOnly: false
+    })
   }
+
   // Run code goes here
-  run(message) {
-    let user = message.mentions.members.first();
-    let roleToAdd = message.mentions.roles.first();
+  run (message) {
+    const user = message.mentions.members.first()
+    const roleToAdd = message.mentions.roles.first()
 
     // checking to see if the user has the role or not
-    if(!(user.roles.find(r => r.name === roleToAdd.name))) {
-      user.addRole(roleToAdd);
+    if (!(user.roles.find(r => r.name === roleToAdd.name))) {
+      user.addRole(roleToAdd)
       message.channel.send(`${user} has been given the role: ${roleToAdd.name}`)
         .then(msg => {
           msg.delete(5000)
-        });
+        })
     } else {
-      message.channel.send(`${user} already has the role: ${roleToAdd.name}`);
+      message.channel.send(`${user} already has the role: ${roleToAdd.name}`)
     }
 
     // console.error(user, roleToAdd, message.member.roles.find(r => r.name === roleToAdd));
-
   }
-
-};
+}

@@ -1,10 +1,10 @@
 // Getting the 'Command' features from Commando
-const { Command } = require('discord.js-commando');
-const Discord = require('discord.js');
+const { Command } = require('discord.js-commando')
+const Discord = require('discord.js')
 
 // Code for the command
 module.exports = class ticketCommand extends Command {
-  constructor(client) {
+  constructor (client) {
     super(client, {
       // name of the command, must be in lowercase
       name: 'ticket',
@@ -18,110 +18,105 @@ module.exports = class ticketCommand extends Command {
       description: 'Create a ticket under a support category',
       // adds cooldowns to the command
       throttling: {
-          // usages in certain time x
-          usages: 1,
-          // the cooldown, x
-          duration: 10,
+        // usages in certain time x
+        usages: 1,
+        // the cooldown, x
+        duration: 10
       },
       // Prevents it from being used in dms
       guildOnly: true,
       // Prevents anyone other than owner to use the command
-      ownerOnly: false,
-    });
+      ownerOnly: false
+    })
   }
+
   // Run code goes here
-  run(message) {
+  run (message) {
     // separting the message into cmd & args
-    let messageArry = message.content.split(" ");
-    let messageLength = messageArry.length - 1;
+    const messageArry = message.content.split(' ')
+    const messageLength = messageArry.length - 1
     // `.ticket create issue #1` is turned into
     // cmd = `.ticket`, option = `create`, issue = `issue #1`
-    let cmd = messageArry[0];
-    let option = messageArry[1];
-    let issue = messageArry.slice(2, messageLength);
-    let errorEmbed = new Discord.RichEmbed()
-      .setTitle("Incorrect Usage!")
-      .addField("Please use as:",`\`${this.client.commandPrefix}ticket [create/new] [Your Issue]\``)
-      .setFooter('Made by - nukestye™',`${this.client.user.avatarURL}`);
+    const option = messageArry[1]
+    const issue = messageArry.slice(2, messageLength)
+    const errorEmbed = new Discord.RichEmbed()
+      .setTitle('Incorrect Usage!')
+      .addField('Please use as:', `\`${this.client.commandPrefix}ticket [create/new] [Your Issue]\``)
+      .setFooter('Made by - nukestye™', `${this.client.user.avatarURL}`)
 
-    let permEmbed = new Discord.RichEmbed()
+    const permEmbed = new Discord.RichEmbed()
       .setTitle(message.author.tag)
-      .setDescription(`You do not have perms to close ticket, ask staff to do so.`)
-      .setFooter('Made by - nukestye™',`${this.client.user.avatarURL}`);
+      .setDescription('You do not have perms to close ticket, ask staff to do so.')
+      .setFooter('Made by - nukestye™', `${this.client.user.avatarURL}`)
 
-    if (option == "create" || option == "new") {
-      let name = `Ticket-${message.author.discriminator}`;
-      if(issue.length < 1) return message.channel.send(ErrorEmbed);
-      message.guild.createChannel(name, "text").then(c => {
-          let role = message.guild.roles.find("name", "Staff");
-          let role2 = message.guild.roles.find("name", "@everyone");
+    if (option === 'create' || option === 'new') {
+      const name = `Ticket-${message.author.discriminator}`
+      if (issue.length < 1) return message.channel.send(errorEmbed)
+      message.guild.createChannel(name, 'text').then(c => {
+        const role = message.guild.roles.find('name', 'Staff')
+        const role2 = message.guild.roles.find('name', '@everyone')
 
-          c.overwritePermissions(role, {
-              SEND_MESSAGES: true,
-              READ_MESSAGES: true
-          });
-          c.overwritePermissions(role2, {
-              SEND_MESSAGES: false,
-              READ_MESSAGES: false
-          });
-          c.overwritePermissions(message.author, {
-              SEND_MESSAGES: true,
-              READ_MESSAGES: true
-          });
-          let category = message.guild.channels.find(c => c.name == "Support" && c.type == "category")
+        c.overwritePermissions(role, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+        })
+        c.overwritePermissions(role2, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: false
+        })
+        c.overwritePermissions(message.author, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+        })
+        const category = message.guild.channels.find(c => c.name === 'Support' && c.type === 'category')
 
-          if (category) {
-            c.setParent(category.id)
+        if (category) {
+          c.setParent(category.id)
+        } else {
+          if (!category) {
+            message.guild.createChannel('Support', 'category').then(Category => {
+              c.setParent(Category.id)
+            })
           } else {
-            if(!category) {
-                message.guild.createChannel("Support", "category").then(Category => {
-                c.setParent(Category.id)
-              });
-            } else {
-              console.error(`Category channel is missing:\nCategory: ${!!category}`);
-              return message.channel.send(`Category channel is missing:\nCategory: ${!!category}`);
-            }
-          };
+            console.error(`Category channel is missing:\nCategory: ${!!category}`)
+            return message.channel.send(`Category channel is missing:\nCategory: ${!!category}`)
+          }
+        };
 
+        message.channel.send(`:white_check_mark: Your ticket has been created, #${c.name}.`)
+        const embed = new Discord.RichEmbed()
+          .setColor(0xCF40FA)
+          .addField(`Hey ${message.author.username}!`, `Please try explain why you opened this ticket with as much detail as possible. Our **Support Team** will be here soon to help.\n**Your Issue**\n ${issue.join(' ')}`)
+          .setTimestamp()
 
-          message.channel.send(`:white_check_mark: Your ticket has been created, #${c.name}.`);
-          const embed = new Discord.RichEmbed()
-            .setColor(0xCF40FA)
-            .addField(`Hey ${message.author.username}!`, `Please try explain why you opened this ticket with as much detail as possible. Our **Support Team** will be here soon to help.\n**Your Issue**\n ${issue.join(" ")}`)
-            .setTimestamp();
-
-
-          c.send({ embed: embed });
-      }).catch(console.error);
-
-    } else if (option == "close") {
+        c.send({ embed: embed })
+      }).catch(console.error)
+    } else if (option === 'close') {
       if (message.member.roles.some(role => role.name === 'Staff')) {
-        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
+        if (!message.channel.name.startsWith('ticket-')) return message.channel.send('You can\'t use the close command outside of a ticket channel.')
 
         message.channel.send(`Are you sure? Once confirmed, you cannot reverse this action!\nTo confirm, type \`${this.client.commandPrefix}confirm\`. This will time out in 10 seconds and be cancelled.`)
           .then((m) => {
             message.channel.awaitMessages(response => response.content === `${this.client.commandPrefix}confirm`, {
               max: 1,
               time: 10000,
-              errors: ['time'],
+              errors: ['time']
             })
-            .then((collected) => {
-                message.channel.delete();
+              .then((collected) => {
+                message.channel.delete()
               })
               .catch(() => {
                 m.edit('Timed out, the ticket will not closed.')
                   .then(m2 => {
-                      m2.delete();
-                  }, 3000);
-              });
-          });
-        } else {
-          message.channel.send({embed: permEmbed})
-        };
+                    m2.delete()
+                  }, 3000)
+              })
+          })
+      } else {
+        message.channel.send({ embed: permEmbed })
+      };
     } else {
-      message.channel.send(errorEmbed);
+      message.channel.send(errorEmbed)
     }
-
   }
-
-};
+}

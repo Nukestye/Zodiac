@@ -1,9 +1,12 @@
 {
-  "token": "Discord Bot token goes here",
-  "prefix": ".",
+  "prefix": "z!",
   "owner": "Owner ID goes here",
   "discord": "Owner's Discord goes here",
   "colour": "0x4B0082",
+  "env": {
+    "TOKEN": "",
+    "youtubeAPI": "Youtube API goes here"
+  },
   "log_channels": {
     "moderation": "Moderation channel name goes here",
     "events": "Events channel name goes here",

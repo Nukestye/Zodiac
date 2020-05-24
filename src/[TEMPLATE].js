@@ -1,9 +1,9 @@
-// Getting the 'Command' features from Commando
-const { Command } = require('discord.js-commando');
+// Getting the "Command" features from Commando
+const { Command } = require('discord.js-commando')
 
 // Code for the command
 module.exports = class newCommand extends Command {
-  constructor(client) {
+  constructor (client) {
     super(client, {
       // name of the command, must be in lowercase
       name: 'newname',
@@ -13,14 +13,14 @@ module.exports = class newCommand extends Command {
       group: 'mod',
       // name within the command group, must be in lowercase
       memberName: 'newcommand',
-      // Is the description used for 'help' command
+      // Is the description used for "help" command
       description: 'Description for the new Command',
       // adds cooldowns to the command
       throttling: {
-          // usages in certain time x
-          usages: 1,
-          // the cooldown
-          duration: 10,
+        // usages in certain time x
+        usages: 1,
+        // the cooldown
+        duration: 10
       },
       // Prevents it from being used in dms
       guildOnly: true,
@@ -38,24 +38,24 @@ module.exports = class newCommand extends Command {
           // a prompt asking the user
           prompt: 'Enter the text',
           // the data type of the argument/variable
-          type: 'string',
+          type: 'string'
           // default value if nothing is entered
-          //default: 'hello',
+          // default: "hello",
           // check if the argument/variable matchs or not
-          //validate: text => /* check here */text.length < 201,
+          // validate: text => /* check here */text.length < 201,
           // Forces to be one of the options
-          //oneOf:['nothing','nothing2', 'hello'],
-        },
+          // oneOf:["nothing","nothing2", "hello"],
+        }
         // > Part of one argument/variable
-      ],
-    });
-  }
-  // Run code goes here
-  run(message, { text }) {
-    // 'message.say' is the same as 'message.channel.send' in commando
-    return message.reply(text);
-    // interact with client(bot) using 'this.client'
-    console.log(this.client.guilds.size);
+      ]
+    })
   }
 
-};
+  // Run code goes here
+  run (message, { text }) {
+    // interact with client(bot) using "this.client"
+    // console.log(this.client);
+    // "message.say" is the same as "message.channel.send" in commando
+    return message.reply(text)
+  }
+}
