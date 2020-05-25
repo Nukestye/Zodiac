@@ -1,5 +1,7 @@
 ### Zodiac bot
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/43b4217a65334e17a4cc443fe9eb5e2e)](https://app.codacy.com/manual/sahig012.320/Zodiac?utm_source=github.com&utm_medium=referral&utm_content=Nukestye/Zodiac&utm_campaign=Badge_Grade_Dashboard)
+
 ![Issues](https://img.shields.io/github/issues/Nukestye/Zodiac?style=for-the-badge&logo=appveyor)
 ![License](https://img.shields.io/github/license/Nukestye/Zodiac?style=for-the-badge&logo=appveyor)
 ![Version](https://img.shields.io/github/v/release/Nukestye/Zodiac?style=for-the-badge)
