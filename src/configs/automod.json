@@ -1,0 +1,13 @@
+{
+    "name": "AutoMod",
+    "version": "beta-0.1.0",
+    "enabled": "true",
+    "config": {
+        "blockedWord": {
+            "enabled": "true",
+            "bannedWords": ["", "", ""]
+        }
+
+    }
+
+}
