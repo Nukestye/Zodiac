@@ -5,62 +5,41 @@
 ![Version](https://img.shields.io/github/v/release/Nukestye/Zodiac?style=for-the-badge)
 
 ## Information
-*Note: This is my first discord bot, so be wary of any issues that may arise from my code. Also, be sure to let me know about those issues.*
+**This is my first discord bot, therefore be wary of any issues that may arise from my code. Also, be sure to let me know about those issues.**
 
 Zodiac Discord Bot is used for mainly moderation. Its current features are as follows:
-> Moderation Commands
 
-* Announcement Command - Makes an announcement in the channel mentioned with a `@everyone`.
-      
-* Ban Command - Bans mentioned user and gives a report to the report channel.
+| Moderation Commands 	| Explanation                                                                                        	|
+|---------------------	|----------------------------------------------------------------------------------------------------	|
+| Ban                 	| Bans mentioned user and gives a report to the report channel.                                      	|
+| Kick                	| Kicks mentioned user and gives a report to the report channel.                                     	|
+| Lock                	| Locks & unlocks the channel to only read-only, Only those who have staff role are allowed to type. 	|
+| Poll                	| Starts a poll with two options with `@everyone`.                                                   	|
+| Add Role            	| Adds mentioned role to mentioned user if not assigned.                                             	|
+| Remove Role         	| Removes mentioned role from a mentioned user.                                                      	|
+| Ticket System       	| A way to contact `@Staff` users. Provides a channel where the issue can be discussed.              	|
+| Clear               	| Clears x number of messages in the channel.                                                        	|
+| Mute & Unmute       	| Mutes mentioned user if not muted. Unmute mentioned user if muted.                                 	|
+| Announcement        	| Makes an announcement in the channel mentioned with a `@everyone`.                                 	|
 
-* Kick Command - kicks mentioned user and gives a report to the report channel.
-
-* Lock Command - Locks & unlocks the channel to only read-only, Only those who have staff role are allowed to type.
-
-* Mute Command - Mutes mentioned user if not muted.
-
-* Unmute Command - Unmutes the mentioned user if muted.
-
-* Poll Command - Sends a poll with title and two emojis with `@everyone`.
-
-* Add Role Command - Adds mentioned role to mentioned user if not assigned.
-
-* Remove Role Command - Removes mentioned role from a mentioned user.
-
-* Ticket System - Ticket system where you only the user and `@Staff` role can see and type.
-
-* Clear Command - Clears x number of messages in the channel.
-
-> Public Commands
-
-* Avatar Command - Shows mentioned user's avatar or the users.
-
-* Info Command - Gives info about the server and bot.
-
-* Meme Command - Gets random meme from r/dankmemes.
-
-* Youtube Command - Search youtube for your videos.
-
-
-*Note: More Commands are being worked on.*
+###### There are some public commands included, such as Youtube search, memes, avater and info. 
 
 ## Installation
    The process of installing and hosting the bot is simple.
+###### Please make sure you have the required Dependencies installed, `npm install` to install any that you do not have.
 
-- Step 1:
+#### [Step 1:](#)
          Clone the repo into a new folder.
-
-> Please make sure that you have the required Dependencies installed, to make sure you can do `npm install` to check.
-
-   
-- Step 2: 
+         
+         
+#### [Step 2:](#)
          Fill out the credentials in config.json.
+        
 
-   
-- Step 3:
-         Run the command line inside the folder and type the following command:
-`node main.js`
+ #### [Step 3:](#)
+         Run the command line inside the folder and type the following command: node main.js
 
-*If everything is done correctly then the bot should launch, if not please check to see if you have missed any steps. If not then please report it as an issue and I'll work on it straight away.*
+
+
+###### The bot should launch, if not then retrace your steps to see if you missed any credentials. If not then please open up an Issue where I'll help you fix setup.
 
