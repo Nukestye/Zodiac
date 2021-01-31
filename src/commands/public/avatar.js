@@ -45,7 +45,7 @@ module.exports = class avatarCommand extends Command {
     } else {
       user = message.mentions.users.first()
       console.log('args in message')
-    };
+    }
 
     const avatarEmebd = new Discord.RichEmbed()
       .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL}`)

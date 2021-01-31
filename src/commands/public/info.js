@@ -81,7 +81,7 @@ module.exports = class infoCommand extends Command {
         categoryChannels.push(channel.name)
       } else if (channel.type === 'voice') {
         voiceChannels.push(channel.name)
-      };
+      }
     })
     // finding the number of roles in the guild
     const roles = []
