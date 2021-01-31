@@ -46,7 +46,7 @@ module.exports = class announcementCommand extends Command {
       title = 'Important Announcement: '
     } else {
       title = 'Important Announcement: \n' + title.join(' ')
-    };
+    }
     console.log(text.length)
     console.log(title.length)
     if (text.length < 1 && title.length < 1) return message.channel.send('Incorrect Usage!\n`+announce [#Channel] [Title] | [Description]`')

@@ -46,7 +46,7 @@ module.exports = class lockCommand extends Command {
     if (!staffRole) {
       message.channel.send('Staff role is missing!')
       console.error(chalk.red('[!] [LOCK COMMAND] Staff role is missing!'))
-    };
+    }
     // making no perms Emebd
     const noPermsEmebd = new Discord.RichEmbed()
       .setColor('#FF0000')
@@ -94,6 +94,6 @@ module.exports = class lockCommand extends Command {
         READ_MESSAGES: true
       })
       message.channel.send(lockEmbed)
-    };
+    }
   }
 }

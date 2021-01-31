@@ -58,5 +58,5 @@ module.exports = class clearCommand extends Command {
         console.error(err)
         message.channel.send('There was an error trying to prune messages in this channel!')
       })
-  };
+  }
 }

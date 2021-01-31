@@ -81,7 +81,7 @@ module.exports = class ticketCommand extends Command {
             console.error(`Category channel is missing:\nCategory: ${!!category}`)
             return message.channel.send(`Category channel is missing:\nCategory: ${!!category}`)
           }
-        };
+        }
 
         message.channel.send(`:white_check_mark: Your ticket has been created, #${c.name}.`)
         const embed = new Discord.RichEmbed()
@@ -114,7 +114,7 @@ module.exports = class ticketCommand extends Command {
           })
       } else {
         message.channel.send({ embed: permEmbed })
-      };
+      }
     } else {
       message.channel.send(errorEmbed)
     }
