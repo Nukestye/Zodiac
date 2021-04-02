@@ -9,7 +9,9 @@
 * - Add more Public commands.
 */
 
-const config = require('./config.json')
+const prefix = process.env.PREFIX;
+const owner = process.env.OWNER;
+const discord = process.env.DISCORD;
 const fs = require('fs')
 const log = console.log
 
@@ -35,9 +37,9 @@ fs.readdir('./src/events/', (err, files) => {
 })
 
 const client = global.client = new CommandoClient({
-  commandPrefix: `${config.prefix}`,
-  owner: `${config.owner}`,
-  invite: `${config.discord}`,
+  commandPrefix: `${prefix}`,
+  owner: `${owner}`,
+  invite: `${discord}`,
   unknownCommandResponse: false
 })
 
@@ -56,7 +58,7 @@ client.registry
   .registerCommandsIn(path.join(__dirname, '/src/commands'))
 
 // list of activities that the bot goes through
-const activityArray = [`${config.prefix}help | `]
+const activityArray = [`${prefix}help | `]
 // Bot lanuch code
 client.once('ready', () => {
   log(`Logged in as ${client.user.tag} in ${client.guilds.size} guild(s)!`)
@@ -73,4 +75,4 @@ client.once('ready', () => {
 client.on('error', console.error)
 
 // Login in using the token in config
-client.login(config.env.TOKEN)
+client.login(process.env.TOKEN)
