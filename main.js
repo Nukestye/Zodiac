@@ -9,9 +9,9 @@
 * - Add more Public commands.
 */
 
-const prefix = process.env.PREFIX;
-const owner = process.env.OWNER;
-const discord = process.env.DISCORD;
+const prefix = process.env.PREFIX
+const owner = process.env.OWNER
+const discord = process.env.DISCORD
 const fs = require('fs')
 const log = console.log
 
